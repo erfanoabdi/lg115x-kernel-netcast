@@ -1,0 +1,60 @@
+menuconfig LGSNAP
+	bool "LGSNAP support"
+	depends on ARM
+	depends on ARCH_SUSPEND_POSSIBLE || ARCH_HIBERNATION_POSSIBLE
+	depends on PM_SLEEP
+	default n
+	help
+	  This enables "LGSNAP" function based on swsuspend.
+
+if LGSNAP
+	config LGSNAP_COMPRESS
+	bool "LGSNAP compress hibernation image"
+	default n
+	
+choice 
+	prompt "LGSNAP compress algorithm"
+	depends on LGSNAP_COMPRESS
+	default LGSNAP_COMPRESS_LZO
+	help
+	  This enables LGSNAP hibernation image compressing.
+	
+	config LGSNAP_COMPRESS_LZO
+		bool "LZO"
+		depends on LGSNAP_COMPRESS
+		select CRYPTO_LZO
+		help
+		  Compress hibernation image using LZO algorithm
+
+	config LGSNAP_COMPRESS_LZO_99x
+		bool "LZO_999"
+		depends on LGSNAP_COMPRESS
+		select CRYPTO_LZO
+		help
+		  Compress hibernation image using LZO 99x algorithm
+
+	config LGSNAP_COMPRESS_GZIP
+		bool "GZIP"
+		depends on LGSNAP_COMPRESS
+		select CRYPTO_ZLIB
+		help
+		  Compress hibernation image using GZIP algorithm
+
+endchoice	  
+
+	config LGSNAP_COMP_TYPE
+	int
+	default 1 if LGSNAP_COMPRESS_LZO
+	default 2 if LGSNAP_COMPRESS_LZO_999
+	default 3 if LGSNAP_COMPRESS_GZIP
+	default 0 if !LGSNAP_COMPRESS
+
+	config LGSNAP_DEBUG
+	bool "LGSNAP enabel debugging function"
+	default n
+
+	config LGSNAP_TEST
+	bool "LGSNAP enabel test function"
+	default n
+endif
+
