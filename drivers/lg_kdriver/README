@@ -1,0 +1,12 @@
+Please download linux-3.40lg115x.tar.gz into same directory.
+
+$ tar zxf linux-3.4-lg115x.tar.gz
+$ tar zxf kdriver.tar.gz -C linux-3.4-lg115x/drivers
+$ ln -s ${PWD}/kdriver linux-3.4-lg115x/drivers/lg_kdriver
+$ cd linux-3.4-lg115x
+$ export PLATFORM_CHIP_VER=lg1154
+$ export PLATFORM_CHIP=lg1154
+$ export PLATFORM_CHIP_REV=B0
+$ export KERNEL_NAME=linux-2.6.39-mvista-h13
+$ make ARCH=arm lg1154_kdrv_defconfig
+$ make ARCH=arm uImage

@@ -1,0 +1,12 @@
+
+
+
+[TODO LIST]
+
+1. support output pixel type 
+   for example, RGBA output pixel should be converted to ARGB
+
+2. support header parsing in PNG kadaptor
+
+3. remove LX_PNG_DECODE_CAPS_T and use LX_PNG_CFG_T
+
