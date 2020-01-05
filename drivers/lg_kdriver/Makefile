@@ -21,12 +21,13 @@
 #   DESCRIPTION :   Makefile for building LG1150 kernel driver                 #
 #******************************************************************************#
 
-ifeq ($(KERNEL_NAME),)
-$(error KERNEL_NAME is not defined, please define this variable above )
-endif
-ifeq ($(PLATFORM_CHIP),)
-$(error PLATFORM_CHIP is not defined, please define this variable above )
-endif
+#ifeq ($(KERNEL_NAME),)
+#$(error KERNEL_NAME is not defined, please define this variable above )
+#endif
+#ifeq ($(PLATFORM_CHIP),)
+#$(error PLATFORM_CHIP is not defined, please define this variable above )
+#endif
+PLATFORM_CHIP ?= lg1154
 
 #==============================================================================
 #
