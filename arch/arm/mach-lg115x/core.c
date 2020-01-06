@@ -31,7 +31,6 @@
 #include "uart.h"
 #include "usb.h"
 #include "xip.h"
-#include "ramoops.h"
 
 static void __init _fixup(struct tag *tag, char **from, struct meminfo *meminfo)
 {
@@ -126,7 +125,6 @@ static void __init _init_machine(void)
 	lg115x_init_timer();
 	lg115x_init_uart();
 	lg115x_init_usb();
-    lg115x_init_ramoops();
 }
 
 static void _restart(char mode, char const *cmd)
