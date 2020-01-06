@@ -29,10 +29,14 @@
 #endif
 ifeq ($(CONFIG_MACH_LG1152), y)
 PLATFORM_CHIP ?= lg1152
+PLATFORM_CHIP_VER ?= lg1152
 endif
 ifeq ($(CONFIG_MACH_LG1154), y)
 PLATFORM_CHIP ?= lg1154
+PLATFORM_CHIP_VER ?= lg1154
+PLATFORM_CHIP_REV ?= B0
 endif
+export PLATFORM_CHIP PLATFORM_CHIP_VER PLATFORM_CHIP_REV
 
 #==============================================================================
 #
