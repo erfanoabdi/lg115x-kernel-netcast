@@ -25,3 +25,4 @@ obj-$(CONFIG_SMP)		+= platsmp.o
 obj-$(CONFIG_SMP)		+= smp.o
 obj-$(CONFIG_TRUSTZONE)		+= headsmc.o
 obj-$(CONFIG_TRUSTZONE)		+= smc.o
+obj-y				+= ramoops.o
