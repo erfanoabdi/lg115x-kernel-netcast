@@ -69,7 +69,7 @@ BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_SCI, 	sci,)
 BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_CLK, 	clk,)
 BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_MONITOR,monitor,)
 BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_MJPEG, mjpeg,)
-#BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_VDEC,	vdec,)
+BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_VDEC,	vdec,)
 BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_APR,	apr,)
 BASE_MODULE		+= $(call cond_assign, YES, INCLUDE_KDRV_MEMPROT,	memprot,)
 

@@ -63,22 +63,6 @@ kdrv_vdec-objs		+= hal/$(vdec_haldir)/vsync_hal_api.o
 kdrv_vdec-objs		+= hal/$(vdec_haldir)/lq_hal_api.o
 kdrv_vdec-objs-$(CONFIG_MACH_LG1154) += hal/$(vdec_haldir)/de_vdo_hal_api.o
 
-
-ifndef VDEC_TOP_MODULE
-VDEC_TOP_MODULE 	?= YES
-
-ifeq ($(SEPERATED_MODULE),YES)
-obj-m				+= vdec/vdc/vdu/
-else
-include $(src)/vdec/vdc/vdu/subdir.mk
-kdrv_vdec-objs		+= $(addprefix vdc/vdu/,$(cnm-objs))
-endif
-endif
-
-ifeq ($(SEPERATED_MODULE),NO)
-kdrv_vdec-CFLAGS	+= -DINCLUDE_MODULE
-endif
-
 # vdec driver that is linked into kdrv_lg115x.ko
 #kdrv_vdec-CFLAGS	+= -I$(src)/logfunnel
 KDRV_MODULE_OBJS	+= $(addprefix vdec/,$(kdrv_vdec-objs) $(kdrv_vdec-objs-y))
