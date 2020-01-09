@@ -75,6 +75,6 @@ ifeq ($(KDRV_GLOBAL_LINK), YES)
 # KDRV_MODULE_OBJS is used for KDRV_GLOBAL_LINK mode
 KDRV_MODULE_OBJS	+= $(addprefix $(be_MODULE)/,$(kdrv_be-objs))
 else
-obj-m				:= kdrv_be.o
+obj-y				:= kdrv_be.o
 endif
 
